@@ -1,5 +1,4 @@
 import logo from "./logo.svg";
-import arrowDown from "./arrow-down.svg";
 import searchIcon from "./search-icon.svg";
 import "./App.css";
 import * as React from "react";
@@ -15,7 +14,7 @@ export const SearchContainer = () => {
         setCategory(event.target.value);
     };
     const Placeholder = ({ children }) => {
-        return <div style={{ color: "#32363A" }}>{children}</div>;
+        return <div className="categories-placeholder">{children}</div>;
     };
 
     return (
@@ -27,8 +26,38 @@ export const SearchContainer = () => {
             >
                 <Select
                     IconComponent={KeyboardArrowDownIcon}
+                    MenuProps={{
+                        sx: {
+                            "&& .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper":
+                                {
+                                    paddingTop: "4px",
+                                    paddingBottom: "4px",
+                                    paddingLeft: "12px",
+                                    paddingRight: "12px",
+                                    width: "131px",
+                                    height: "186px",
+                                    backgroundColor: "#00254F",
+                                },
+                            "&& .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected":
+                                {
+                                    backgroundColor: "#0059BC",
+                                },
+                            ".css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root": {
+                                height: "34px",
+                                color: "#FFFFFF",
+                                fontFamily: "Roboto",
+                                fontSize: "14px",
+                                fontWeight: 400,
+                                textAlign: "left",
+                            },
+                            ".css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover":
+                                {
+                                    backgroundColor: "#0059BC",
+                                },
+                        },
+                    }}
                     sx={{
-                        width: 133,
+                        width: 132,
                         height: 40,
                         borderTopLeftRadius: 0,
                         borderBottomLeftRadius: 0,
@@ -43,6 +72,10 @@ export const SearchContainer = () => {
                         ".css-bpeome-MuiSvgIcon-root-MuiSelect-icon": {
                             color: "#000000",
                         },
+                        fontFamily: "Roboto",
+                        fontSize: 14,
+                        fontWeight: 400,
+                        color: "#32363A",
                     }}
                     displayEmpty
                     value={category}
@@ -53,11 +86,21 @@ export const SearchContainer = () => {
                             : () => <Placeholder>Categories</Placeholder>
                     }
                 >
-                    <MenuItem value={10}>Data</MenuItem>
-                    <MenuItem value={20}>Category Name</MenuItem>
-                    <MenuItem value={30}>Category Name</MenuItem>
-                    <MenuItem value={40}>Category Name</MenuItem>
-                    <MenuItem value={50}>Category Name</MenuItem>
+                    <MenuItem className="menu-item" value={10}>
+                        Data
+                    </MenuItem>
+                    <MenuItem className="menu-item" value={20}>
+                        Category Name
+                    </MenuItem>
+                    <MenuItem className="menu-item" value={30}>
+                        Category Name
+                    </MenuItem>
+                    <MenuItem className="menu-item" value={40}>
+                        Category Name
+                    </MenuItem>
+                    <MenuItem className="menu-item" value={50}>
+                        Category Name
+                    </MenuItem>
                 </Select>
             </FormControl>
             <div className="searchButton">
