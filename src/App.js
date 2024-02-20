@@ -3,6 +3,8 @@ import * as React from "react";
 import SwipeableTextMobileStepper from "./Swiper";
 import Products from "./Products";
 import Footer from "./Footer";
+import ProductsMobile from "./ProductsMobile";
+import FooterMobile from "./FooterMobile";
 import { SearchContainer } from "./SearchContainer";
 import { useState } from "react";
 import menuPic from "./images/menu.png";
@@ -10,6 +12,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import searchIcon from "./images/search-icon.svg";
 function App() {
     const [menu, setMenu] = useState(0);
     let MenuItems;
@@ -60,12 +63,12 @@ function App() {
                             );
                         })}
                         {window.screen.width > 768 &&
-                        window.screen.width <= 1440 ? (
+                        window.screen.width < 1440 ? (
                             <FormControl>
                                 <Select
                                     IconComponent={KeyboardArrowDownIcon}
                                     MenuProps={{
-                                        backgroundColor: "#FFFFFF",
+                                        backgroundColor: "#F4F5F6",
                                         sx: {
                                             "&& ul": {
                                                 width: "92px",
@@ -144,7 +147,7 @@ function App() {
                                     onChange={handleChange}
                                 >
                                     <MenuItem
-                                        style={{ backgroundColor: "#FFFFFF" }}
+                                        style={{ backgroundColor: "#F4F5F6" }}
                                         value={20}
                                         onClick={() => {
                                             if (menu === 7) {
@@ -157,7 +160,7 @@ function App() {
                                         Menu Item
                                     </MenuItem>
                                     <MenuItem
-                                        style={{ backgroundColor: "#FFFFFF" }}
+                                        style={{ backgroundColor: "#F4F5F6" }}
                                         value={30}
                                         onClick={() => {
                                             if (menu === 8) {
@@ -177,7 +180,7 @@ function App() {
                                                 setMenu(9);
                                             }
                                         }}
-                                        style={{ backgroundColor: "#FFFFFF" }}
+                                        style={{ backgroundColor: "#F4F5F6" }}
                                         value={40}
                                     >
                                         Menu Item
@@ -249,10 +252,20 @@ function App() {
                     ) : null}
                 </div>
             ) : null}
-
+            {window.screen.width < 768 ? (
+                <div className="search-container-mobile">
+                    <input
+                        className="search-input-mobile"
+                        placeholder="Search..."
+                    />
+                    <div className="search-button-mobile">
+                        <img src={searchIcon} />
+                    </div>
+                </div>
+            ) : null}
             <SwipeableTextMobileStepper />
-            <Products />
-            <Footer />
+            {window.screen.width < 768 ? <ProductsMobile /> : <Products />}
+            {window.screen.width < 768 ? <FooterMobile /> : <Footer />}
         </div>
     );
 }
