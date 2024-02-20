@@ -6,15 +6,26 @@ import Footer from "./Footer";
 import ProductsMobile from "./ProductsMobile";
 import FooterMobile from "./FooterMobile";
 import { SearchContainer } from "./SearchContainer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import menuPic from "./images/menu.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import searchIcon from "./images/search-icon.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "./redux/features/productSlice";
+
 function App() {
     const [menu, setMenu] = useState(0);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getProducts());
+    }, []);
+
+    const { products } = useSelector((state) => state.products);
+
     let MenuItems;
     if (window.screen.width >= 1440) {
         MenuItems = new Array(12).fill("Menu Item");
@@ -264,7 +275,11 @@ function App() {
                 </div>
             ) : null}
             <SwipeableTextMobileStepper />
-            {window.screen.width < 768 ? <ProductsMobile /> : <Products />}
+            {window.screen.width < 768 ? (
+                <ProductsMobile products={products} />
+            ) : (
+                <Products products={products} />
+            )}
             {window.screen.width < 768 ? <FooterMobile /> : <Footer />}
         </div>
     );
