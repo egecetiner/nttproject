@@ -1,7 +1,7 @@
-import instagram from "./instagram.svg";
-import facebook from "./facebook.svg";
-import linkedin from "./linkedin.svg";
-import logoWhite from "./logo-white.svg";
+import instagram from "./images/instagram.svg";
+import facebook from "./images/facebook.svg";
+import linkedin from "./images/linkedin.svg";
+import logoWhite from "./images/logo-white.svg";
 
 function Footer() {
     return (
@@ -18,29 +18,39 @@ function Footer() {
                         <div className="signup">Sign Up</div>
                     </div>
                 </div>
-                <div className="footer-up-right">
-                    <div>
-                        <div className="footer-title">Title</div>
-                        <div className="footer-subtitle">Subtitle</div>
-                        <div className="footer-subtitle">Subtitle</div>
-                        <div className="footer-subtitle">Subtitle</div>
-                        <div className="footer-subtitle">Subtitle</div>
+                {window.screen.width < 1440 ? (
+                    <div className="tablet-title-container">
+                        <div className="tablet-title">Title</div>
+                        <div className="tablet-title">Title</div>
+                        <div className="tablet-title">Title</div>
+                        <div className="tablet-title">Title</div>
+                        <div className="tablet-title">Title</div>
                     </div>
-                    <div>
-                        <div className="footer-title">Title</div>
-                        <div className="footer-subtitle">Subtitle</div>
-                        <div className="footer-subtitle">Subtitle</div>
-                        <div className="footer-subtitle">Subtitle</div>
-                        <div className="footer-subtitle">Subtitle</div>
+                ) : (
+                    <div className="footer-up-right">
+                        <div>
+                            <div className="footer-title">Title</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                        </div>
+                        <div>
+                            <div className="footer-title">Title</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                        </div>
+                        <div>
+                            <div className="footer-title">Title</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                            <div className="footer-subtitle">Subtitle</div>
+                        </div>
                     </div>
-                    <div>
-                        <div className="footer-title">Title</div>
-                        <div className="footer-subtitle">Subtitle</div>
-                        <div className="footer-subtitle">Subtitle</div>
-                        <div className="footer-subtitle">Subtitle</div>
-                        <div className="footer-subtitle">Subtitle</div>
-                    </div>
-                </div>
+                )}
             </div>
             <div className="footer-down">
                 <div className="footer-down-text">contact@nttdata.com</div>

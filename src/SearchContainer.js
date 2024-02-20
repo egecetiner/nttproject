@@ -1,5 +1,5 @@
-import logo from "./logo.svg";
-import searchIcon from "./search-icon.svg";
+import logo from "./images/logo.svg";
+import searchIcon from "./images/search-icon.svg";
 import "./App.css";
 import * as React from "react";
 import MenuItem from "@mui/material/MenuItem";
@@ -19,7 +19,7 @@ export const SearchContainer = () => {
 
     return (
         <div className="searchContainer">
-            <img src={logo} />
+            <img src={logo} className="logo" />
             <input className="searchInput" placeholder="Search..." />
             <FormControl
                 sx={{ minWidth: "fit-content", backgroundColor: "#F4F5F6" }}

@@ -1,6 +1,6 @@
 import Product from "./Product";
-import arrowRight from "./arrow-right.svg";
-import favorite from "./favorite-black.svg";
+import arrowRight from "./images/arrow-right.svg";
+import favorite from "./images/favorite-black.svg";
 function Products() {
     return (
         <div className="products">

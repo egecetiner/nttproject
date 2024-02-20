@@ -1,8 +1,8 @@
 import * as React from "react";
-import carousel1 from "./carousel1.png";
-import carousel2 from "./carousel2.png";
-import carousel3 from "./carousel3.png";
-import carousel4 from "./carousel4.png";
+import carousel1 from "./images/carousel1.png";
+import carousel2 from "./images/carousel2.png";
+import carousel3 from "./images/carousel3.png";
+import carousel4 from "./images/carousel4.png";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MobileStepper from "@mui/material/MobileStepper";
@@ -72,7 +72,7 @@ function SwipeableTextMobileStepper() {
                     flexGrow: 1,
                     display: "flex",
                     justifyContent: "flex-end",
-                    paddingRight: "120px",
+                    paddingRight: window.screen.width < 1440 ? "32px" : "120px",
 
                     "& .MuiMobileStepper-dot": {
                         backgroundColor: "white",
