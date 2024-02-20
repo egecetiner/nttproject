@@ -2,9 +2,22 @@ import productPic from "./images/product-pic.png";
 import favorite from "./images/favorite.svg";
 function Product() {
     return (
-        <div className="product-mobile-container">
+        <div
+            className="product-mobile-container"
+            onClick={() => (window.location.href = "http://stackoverflow.com")}
+        >
             <div className="product">
-                <div className="like-button">
+                <div
+                    className="like-button"
+                    style={{
+                        transform:
+                            window.screen.width < 768
+                                ? `translateX(${
+                                      window.screen.width - 109
+                                  }px) translateY(11px)`
+                                : `translateX(224px) translateY(11px)`,
+                    }}
+                >
                     <img src={favorite} />
                 </div>
 
