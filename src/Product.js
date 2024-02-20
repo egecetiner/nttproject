@@ -1,4 +1,3 @@
-import productPic from "./images/product-pic.png";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 function Product(props) {
     return (
@@ -33,7 +32,7 @@ function Product(props) {
                         (window.location.href = "http://stackoverflow.com")
                     }
                     className="product-pic"
-                    src={productPic}
+                    src={props.product.imageUrl}
                 />
                 <div
                     onClick={() =>
@@ -41,7 +40,7 @@ function Product(props) {
                     }
                     className="product-name"
                 >
-                    Product Name
+                    {props.product.name}
                 </div>
                 <div
                     onClick={() =>
@@ -49,7 +48,7 @@ function Product(props) {
                     }
                     className="price"
                 >
-                    1.299,00 TL
+                    {props.product.price} TL
                 </div>
                 <div
                     onClick={() =>
@@ -66,9 +65,7 @@ function Product(props) {
                     }
                     className="description"
                 >
-                    Lorem ipsum dolor sit amet consectetur. Turpis dolor
-                    vulputate velit id sit leo aliquet id at. Vel tellus tempus
-                    lacus tristique nulla pretium erat duis.
+                    {props.product.description}
                 </div>
 
                 <div
@@ -77,7 +74,7 @@ function Product(props) {
                     }
                     className="shipping-text"
                 >
-                    Ücretsiz - Aynı gün kargo
+                    {props.product.shippingMethod}
                 </div>
             </div>
         </div>

@@ -11,10 +11,10 @@ function Products(props) {
         ? props.products
         : props.products.slice(0, 4);
     const handleLoadMore = () => {
-        setShowMore(!showMore);
+        setShowMore((prevState) => !prevState);
     };
     const handleButton = () => {
-        setIsClicked(!isClicked);
+        setIsClicked((prevState) => !prevState);
     };
 
     const toggleFav = (event, id) => {
@@ -37,6 +37,7 @@ function Products(props) {
             }
         }
     };
+
     return (
         <div className="products">
             <div className="products-upper-container">
@@ -44,11 +45,13 @@ function Products(props) {
                 <div className="favorites-container">
                     <img src={favorite} />
                     <div className="favorite-number">{favs.length} Ürün</div>
-                    <div className="favorites-button">Beğeniler</div>
+                    <div className="favorites-button" onClick={handleButton}>
+                        Beğeniler
+                    </div>
                 </div>
             </div>
             <div className="product-container">
-                {visibleProducts.map((product, index) => {
+                {(isClicked ? favs : visibleProducts).map((product, index) => {
                     return (
                         <Product
                             favs={favs}
@@ -59,7 +62,7 @@ function Products(props) {
                     );
                 })}
             </div>
-            <div className="more-button-container">
+            <div className="more-button-container" onClick={handleLoadMore}>
                 <div className="more-button">
                     <div className="moreText">Daha fazla</div>
                     <img src={arrowRight} />
