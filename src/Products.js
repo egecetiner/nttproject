@@ -6,7 +6,7 @@ function Products(props) {
     const [showMore, setShowMore] = useState(false);
     const [favs, setFavs] = useState([]);
     const [isClicked, setIsClicked] = useState(false);
-    console.log(favs);
+
     const visibleProducts = showMore
         ? props.products
         : props.products.slice(0, 4);
@@ -45,29 +45,47 @@ function Products(props) {
                 <div className="favorites-container">
                     <img src={favorite} />
                     <div className="favorite-number">{favs.length} Ürün</div>
-                    <div className="favorites-button" onClick={handleButton}>
-                        Beğeniler
+                    <div
+                        className="favorites-button"
+                        style={{
+                            backgroundColor: isClicked ? "#FFFFFF" : "#0059BC",
+                            border: isClicked ? "1px solid #0059BC" : null,
+                            color: isClicked ? "#0059BC" : "#FFFFFF",
+                        }}
+                        onClick={handleButton}
+                    >
+                        {isClicked ? "Tüm Ürünler" : "Beğeniler"}
                     </div>
                 </div>
             </div>
             <div className="product-container">
-                {(isClicked ? favs : visibleProducts).map((product, index) => {
-                    return (
-                        <Product
-                            favs={favs}
-                            product={product}
-                            index={index}
-                            toggleFav={toggleFav}
-                        />
-                    );
-                })}
+                {props.products.length > 0 ? (
+                    (isClicked ? favs : visibleProducts).map(
+                        (product, index) => {
+                            return (
+                                <Product
+                                    favs={favs}
+                                    product={product}
+                                    index={index}
+                                    toggleFav={toggleFav}
+                                />
+                            );
+                        }
+                    )
+                ) : (
+                    <div>Loading...</div>
+                )}
             </div>
-            <div className="more-button-container" onClick={handleLoadMore}>
-                <div className="more-button">
-                    <div className="moreText">Daha fazla</div>
-                    <img src={arrowRight} />
+            {isClicked ? null : (
+                <div className="more-button-container" onClick={handleLoadMore}>
+                    <div className="more-button">
+                        <div className="moreText">
+                            {showMore ? "Daha Az" : "Daha Fazla"}
+                        </div>
+                        <img src={arrowRight} />
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }

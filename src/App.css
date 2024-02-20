@@ -27,7 +27,6 @@
 
   .products {
     box-sizing: border-box;
-    height: 586px !important;
     padding-left: 32px !important;
     padding-right: 32px !important;
   }
@@ -59,7 +58,6 @@
 
   .product-container {
     box-sizing: border-box;
-    height: 276px !important;
     padding: 0 !important;
   }
 
@@ -232,6 +230,7 @@
   }
 
   .dots-container {
+    gap: 5px;
     margin-top: 24px;
     display: flex;
     flex-direction: row;
@@ -371,7 +370,7 @@
 }
 
 .products {
-  height: 573px;
+  height: fit-content;
   padding-top: 48px;
   padding-left: 120px;
   padding-right: 120px;
@@ -391,6 +390,8 @@
 }
 
 .favorites-button {
+  cursor: pointer;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -740,7 +741,9 @@
 }
 
 .product-container {
-  height: 375px;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-height: fit-content;
   padding: 12px;
   margin-bottom: 36px;
   display: flex;

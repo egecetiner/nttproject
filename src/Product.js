@@ -5,7 +5,7 @@ function Product(props) {
             <div className="product">
                 <div
                     onClick={(event) => {
-                        props.toggleFav(event, props.product.id);
+                        props.toggleFav(event, props.product?.id);
                     }}
                     className="like-button"
                     style={{
@@ -20,7 +20,7 @@ function Product(props) {
                     <FavoriteBorderIcon
                         fontSize="8px"
                         sx={{
-                            color: props.favs.includes(props.product)
+                            color: props.favs?.includes(props.product)
                                 ? "red"
                                 : "#D1D1D1",
                         }}
@@ -32,7 +32,7 @@ function Product(props) {
                         (window.location.href = "http://stackoverflow.com")
                     }
                     className="product-pic"
-                    src={props.product.imageUrl}
+                    src={props.product?.imageUrl}
                 />
                 <div
                     onClick={() =>
@@ -40,7 +40,7 @@ function Product(props) {
                     }
                     className="product-name"
                 >
-                    {props.product.name}
+                    {props.product?.name}
                 </div>
                 <div
                     onClick={() =>
@@ -48,7 +48,7 @@ function Product(props) {
                     }
                     className="price"
                 >
-                    {props.product.price} TL
+                    {props.product?.price} TL
                 </div>
                 <div
                     onClick={() =>
@@ -65,7 +65,7 @@ function Product(props) {
                     }
                     className="description"
                 >
-                    {props.product.description}
+                    {props.product?.description}
                 </div>
 
                 <div
@@ -74,7 +74,7 @@ function Product(props) {
                     }
                     className="shipping-text"
                 >
-                    {props.product.shippingMethod}
+                    {props.product?.shippingMethod}
                 </div>
             </div>
         </div>
